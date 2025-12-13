@@ -1,6 +1,15 @@
 class Employee:
-    def __init__(self, first_name, last_name, hire_date, birth_date,
-                 city, street, zip_code, phone):
+    def __init__(
+        self,
+        first_name,
+        last_name,
+        hire_date,
+        birth_date,
+        city,
+        street,
+        zip_code,
+        phone,
+    ):
         self.first_name = first_name
         self.last_name = last_name
         self.hire_date = hire_date

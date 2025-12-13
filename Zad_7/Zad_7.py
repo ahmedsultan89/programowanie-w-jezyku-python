@@ -1,8 +1,18 @@
 from typing import List, Optional
 import requests
 
+
 class Brewery:
-    def __init__(self, id: str, name: str, brewery_type: str, city: str, state: str, country: str, website_url: Optional[str]):
+    def __init__(
+        self,
+        id: str,
+        name: str,
+        brewery_type: str,
+        city: str,
+        state: str,
+        country: str,
+        website_url: Optional[str],
+    ):
         self.id = id
         self.name = name
         self.brewery_type = brewery_type
@@ -12,7 +22,10 @@ class Brewery:
         self.website_url = website_url
 
     def __str__(self) -> str:
-        return f"{self.name} ({self.brewery_type}) - {self.city}, {self.state}, {self.country} Website: {self.website_url}"
+        return (f"{self.name} ({self.brewery_type}) - "
+                f"{self.city}, {self.state},"
+                f" {self.country} Website: {self.website_url}")
+
 
 def get_breweries_from_api(per_page: int = 20) -> list:
     url = f"https://api.openbrewerydb.org/v1/breweries?per_page={per_page}"
@@ -24,6 +37,7 @@ def get_breweries_from_api(per_page: int = 20) -> list:
         print(f"Error fetching data: {e}")
         return []
 
+
 def brewery_factory(breweries: list) -> List[Brewery]:
     return [
         Brewery(
@@ -33,16 +47,18 @@ def brewery_factory(breweries: list) -> List[Brewery]:
             city=b.get("city", ""),
             state=b.get("state", ""),
             country=b.get("country", ""),
-            website_url=b.get("website_url")
+            website_url=b.get("website_url"),
         )
         for b in breweries
     ]
+
 
 def main():
     breweries_json = get_breweries_from_api()
     breweries = brewery_factory(breweries_json)
     for brewery in breweries:
         print(brewery)
+
 
 if __name__ == "__main__":
     main()

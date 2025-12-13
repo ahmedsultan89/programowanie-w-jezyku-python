@@ -5,16 +5,42 @@ from Book import Book
 from Order import Order
 
 # Libraries
-library1 = Library("Warsaw", "Main Street 1", "00-001", "8:00-18:00", "123456789")
+library1 = Library(
+    "Warsaw", "Main Street 1", "00-001", "8:00-18:00", "123456789"
+)
 library2 = Library("Krakow", "Old Town 5", "30-001", "9:00-17:00", "987654321")
 
 # Employees
-employee1 = Employee("Anna", "Nowak", "2020-01-10", "1990-05-12",
-                     "Warsaw", "Green St 3", "00-002", "111222333")
-employee2 = Employee("Piotr", "Kowalski", "2019-03-15", "1988-08-20",
-                     "Krakow", "Blue St 7", "30-002", "444555666")
-employee3 = Employee("Maria", "Wisniewska", "2021-06-01", "1995-02-10",
-                     "Warsaw", "Red St 9", "00-003", "777888999")
+employee1 = Employee(
+    "Anna",
+    "Nowak",
+    "2020-01-10",
+    "1990-05-12",
+    "Warsaw",
+    "Green St 3",
+    "00-002",
+    "111222333",
+)
+employee2 = Employee(
+    "Piotr",
+    "Kowalski",
+    "2019-03-15",
+    "1988-08-20",
+    "Krakow",
+    "Blue St 7",
+    "30-002",
+    "444555666",
+)
+employee3 = Employee(
+    "Maria",
+    "Wisniewska",
+    "2021-06-01",
+    "1995-02-10",
+    "Warsaw",
+    "Red St 9",
+    "00-003",
+    "777888999",
+)
 
 # Students
 student1 = Student("Ahmed")
