@@ -1,9 +1,18 @@
-
 import requests
 from typing import List, Optional
 
+
 class Brewery:
-    def __init__(self, id: str, name: str, brewery_type: str, city: str, state: str, country: str, website_url: Optional[str]):
+    def __init__(
+        self,
+        id: str,
+        name: str,
+        brewery_type: str,
+        city: str,
+        state: str,
+        country: str,
+        website_url: Optional[str],
+    ):
         self.id = id
         self.name = name
         self.brewery_type = brewery_type
@@ -13,7 +22,10 @@ class Brewery:
         self.website_url = website_url
 
     def __str__(self) -> str:
-        return f"{self.name} ({self.brewery_type}) - {self.city}, {self.state}, {self.country} Website: {self.website_url}"
+        return (f"{self.name} ({self.brewery_type}) - "
+                f"{self.city}, {self.state}, "
+                f"{self.country} Website: {self.website_url}")
+
 
 url = "https://api.openbrewerydb.org/v1/breweries?per_page=20"
 response = requests.get(url)
@@ -33,7 +45,7 @@ breweries: List[Brewery] = [
         city=b.get("city", ""),
         state=b.get("state", ""),
         country=b.get("country", ""),
-        website_url=b.get("website_url")
+        website_url=b.get("website_url"),
     )
     for b in data
 ]
